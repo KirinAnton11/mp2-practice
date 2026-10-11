@@ -1,0 +1,5 @@
+if(EXISTS "C:/Users/Антон/OneDrive/Рабочий стол/ITMM MYLAB/mp2-practice/KartashovAP/slnx/test/test_set_d8800048_Release_tests.cmake")
+  include("C:/Users/Антон/OneDrive/Рабочий стол/ITMM MYLAB/mp2-practice/KartashovAP/slnx/test/test_set_d8800048_Release_tests.cmake")
+else()
+  add_test(test_set_NOT_BUILT test_set_NOT_BUILT)
+endif()

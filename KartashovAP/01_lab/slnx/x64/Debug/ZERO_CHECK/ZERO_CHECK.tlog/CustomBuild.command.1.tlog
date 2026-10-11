@@ -1,0 +1,10 @@
+^C:\USERS\АНТОН\ONEDRIVE\РАБОЧИЙ СТОЛ\ITMM MYLAB\MP2-PRACTICE\KARTASHOVAP\SLNX\CMAKEFILES\BA1F4F5D6C03ED2BC80D3FB4ECB1AE31\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Антон/OneDrive/Рабочий стол/ITMM MYLAB/mp2-practice/KartashovAP" "-BC:/Users/Антон/OneDrive/Рабочий стол/ITMM MYLAB/mp2-practice/KartashovAP/slnx" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Users/Антон/OneDrive/Рабочий стол/ITMM MYLAB/mp2-practice/KartashovAP/slnx/set.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
