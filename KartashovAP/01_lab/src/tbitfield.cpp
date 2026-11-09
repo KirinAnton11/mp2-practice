@@ -93,10 +93,7 @@ int TBitField::GetBit(const int n) const // получить значение б
     if (n < 0 || n >= BitLen) {
         throw out_of_range("TBitField: bit index out of range");
     }
-    if ((pMem[GetMemIndex(n)] & GetMemMask(n)) != 0) {
-        return 1;
-    }
-    return 0;
+    return ((pMem[GetMemIndex(n)] & GetMemMask(n)) != 0);
 }
 
 // битовые операции
@@ -143,10 +140,7 @@ int TBitField::operator==(const TBitField& bf) const // сравнение
 
 int TBitField::operator!=(const TBitField& bf) const // сравнение
 {
-    if (*this == bf) {
-        return 0;
-    }
-    return 1;
+    return !(*this == bf);
 }
 
 TBitField TBitField::operator|(const TBitField& bf) // операция "или"
@@ -158,17 +152,14 @@ TBitField TBitField::operator|(const TBitField& bf) // операция "или"
     for (int i = 0; i < minMemLen; i++) {
         result.pMem[i] = pMem[i] | bf.pMem[i];
     }
-
-    if (MemLen > bf.MemLen) {
-        for (int i = minMemLen; i < MemLen; i++) {
-            result.pMem[i] = pMem[i];
-        }
+    for (int i = minMemLen; i < MemLen; i++) {
+        result.pMem[i] = pMem[i];
     }
-    else {
-        for (int i = minMemLen; i < bf.MemLen; i++) {
-            result.pMem[i] = bf.pMem[i];
-        }
+  
+    for (int i = minMemLen; i < bf.MemLen; i++) {
+        result.pMem[i] = bf.pMem[i];
     }
+    
 
     return result;
 }
